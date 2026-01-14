@@ -9,14 +9,33 @@ import {
 
 import { supabase } from "./lib/supabase";
 import Header from "./components/Header";
+import { useState } from "react";
+import UsernameModal from "./components/UsernameModal";
 
 function App() {
   console.log("Supabase conectado:", supabase);
 
+  const [currentUser, setCurrentUser] = useState(() =>
+    localStorage.getItem("instalite_user_id")
+  );
+  const [currentUsername, setCurrentUsername] = useState(() =>
+    localStorage.getItem("instalite_username")
+  );
+
+  const handleUsernameSet = (userId, username) => {
+    setCurrentUser(userId);
+    setCurrentUsername(username);
+  };
+
+  // Se não tiver usuário, mostrar modal
+  if (!currentUser) {
+    return <UsernameModal onUsernameSet={handleUsernameSet} />;
+  }
+
   return (
     <div className="min-h-screen bg-instalite-light">
       {/* Header - Fixo no topo */}
-      <Header username="usuario_exemplo" />
+      <Header username={currentUsername} />
 
       {/* Main Feed - CENTRALIZADO */}
       <main className="w-full flex justify-center">

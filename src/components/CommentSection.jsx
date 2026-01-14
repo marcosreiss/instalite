@@ -137,7 +137,7 @@ export default function CommentSection({ postId, currentUser }) {
               placeholder="Adicione um comentário..."
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
-              className="flex-1 border border-instalite-border rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-instalite-primary focus:border-transparent"
+              className="flex-1 border border-instalite-border rounded-full px-4 py-2 text-base focus:outline-none focus:ring-2 focus:ring-instalite-primary focus:border-transparent"
               disabled={loading}
             />
             <button

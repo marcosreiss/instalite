@@ -123,7 +123,7 @@ export default function CreatePost({ currentUser, onPostCreated }) {
             placeholder="Escreva uma legenda..."
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
-            className="w-full border border-instalite-border rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-instalite-primary focus:border-transparent resize-none"
+            className="w-full border border-instalite-border rounded-lg px-4 py-2 text-base focus:outline-none focus:ring-2 focus:ring-instalite-primary focus:border-transparent resize-none"
             rows={3}
             disabled={uploading}
           />

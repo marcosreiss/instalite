@@ -77,7 +77,7 @@ export default function UsernameModal({ onUsernameSet }) {
             placeholder="Digite seu username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full border border-instalite-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-instalite-primary focus:border-transparent transition"
+            className="w-full border border-instalite-border rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-instalite-primary focus:border-transparent transition"
             disabled={loading}
             autoFocus
           />

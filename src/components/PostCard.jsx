@@ -1,12 +1,7 @@
-import {
-  Heart,
-  MessageCircle,
-  Send,
-  Bookmark,
-  MoreHorizontal,
-} from "lucide-react";
+import { MessageCircle, Send, Bookmark, MoreHorizontal } from "lucide-react";
+import LikeButton from "./LikeButton";
 
-export default function PostCard({ post }) {
+export default function PostCard({ post, currentUser }) {
   return (
     <article className="bg-white border border-instalite-border rounded-lg mb-4">
       {/* Header do Post */}
@@ -37,9 +32,9 @@ export default function PostCard({ post }) {
       <div className="px-3 pt-2 pb-1">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-4">
-            <button className="hover:opacity-60 transition">
-              <Heart size={24} className="text-instalite-dark" />
-            </button>
+            {/* Botão de Like */}
+            <LikeButton postId={post.id} currentUser={currentUser} />
+
             <button className="hover:opacity-60 transition">
               <MessageCircle size={24} className="text-instalite-dark" />
             </button>
@@ -50,13 +45,6 @@ export default function PostCard({ post }) {
           <button className="hover:opacity-60 transition">
             <Bookmark size={24} className="text-instalite-dark" />
           </button>
-        </div>
-
-        {/* Curtidas - Placeholder por enquanto */}
-        <div className="mb-1">
-          <span className="text-sm font-semibold text-instalite-dark">
-            0 curtidas
-          </span>
         </div>
 
         {/* Caption */}

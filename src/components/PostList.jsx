@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 import PostCard from "./PostCard";
 
-export default function PostList() {
+export default function PostList({ currentUser }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -52,7 +52,7 @@ export default function PostList() {
   return (
     <div>
       {posts.map((post) => (
-        <PostCard key={post.id} post={post} />
+        <PostCard key={post.id} post={post} currentUser={currentUser} />
       ))}
     </div>
   );

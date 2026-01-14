@@ -30,13 +30,13 @@ function App() {
       <Header username={currentUsername} />
 
       <main className="w-full flex justify-center">
-        <div className="w-full max-w-[470px] pt-8 pb-10 px-4">
+        <div className="w-full max-w-117.5 pt-8 pb-10 px-4">
           <CreatePost
             currentUser={currentUser}
             onPostCreated={handlePostCreated}
           />
 
-          <PostList key={refreshTrigger} />
+          <PostList key={refreshTrigger} currentUser={currentUser} />
         </div>
       </main>
 

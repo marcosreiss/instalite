@@ -25,9 +25,22 @@ function App() {
     setRefreshTrigger((prev) => prev + 1);
   }, []);
 
+  const handleLogout = () => {
+    // Limpar localStorage
+    localStorage.removeItem("instalite_user_id");
+    localStorage.removeItem("instalite_username");
+
+    // Limpar estados
+    setCurrentUser(null);
+    setCurrentUsername(null);
+
+    // Abrir modal novamente
+    setIsUserModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-instalite-light">
-      <Header username={currentUsername} />
+      <Header username={currentUsername} onLogout={handleLogout} />
 
       <main className="w-full flex justify-center">
         <div className="w-full max-w-117.5 pt-8 pb-10 px-4">

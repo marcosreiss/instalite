@@ -1,7 +1,6 @@
+import { LogOut } from "lucide-react";
 
-
-
-export default function Header({ username }) {
+export default function Header({ username, onLogout }) {
   return (
     <header className="bg-white border-b border-instalite-border sticky top-0 z-50">
       <div className="max-w-233.75 mx-auto px-5 h-15 flex items-center justify-between">
@@ -19,6 +18,13 @@ export default function Header({ username }) {
             <span className="text-sm font-semibold text-instalite-dark hidden sm:block">
               {username}
             </span>
+            <button
+              onClick={onLogout}
+              className="ml-2 p-2 text-instalite-gray hover:text-instalite-primary transition rounded-lg hover:bg-instalite-light"
+              title="Sair"
+            >
+              <LogOut size={20} />
+            </button>
           </div>
         )}
       </div>

@@ -1,5 +1,6 @@
-import { MessageCircle, Send, Bookmark, MoreHorizontal } from "lucide-react";
+import { Send, Bookmark, MoreHorizontal } from "lucide-react";
 import LikeButton from "./LikeButton";
+import CommentSection from "./CommentSection";
 
 export default function PostCard({ post, currentUser }) {
   return (
@@ -29,15 +30,11 @@ export default function PostCard({ post, currentUser }) {
       />
 
       {/* Ações */}
-      <div className="px-3 pt-2 pb-1">
-        <div className="flex items-center justify-between mb-2">
+      <div className="px-3 pt-2 pb-3">
+        <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-4">
-            {/* Botão de Like */}
             <LikeButton postId={post.id} currentUser={currentUser} />
 
-            <button className="hover:opacity-60 transition">
-              <MessageCircle size={24} className="text-instalite-dark" />
-            </button>
             <button className="hover:opacity-60 transition">
               <Send size={24} className="text-instalite-dark" />
             </button>
@@ -49,7 +46,7 @@ export default function PostCard({ post, currentUser }) {
 
         {/* Caption */}
         {post.caption && (
-          <div className="mb-1">
+          <div className="mb-2">
             <span className="text-sm font-semibold text-instalite-dark mr-1">
               {post.users?.username}
             </span>
@@ -57,15 +54,13 @@ export default function PostCard({ post, currentUser }) {
           </div>
         )}
 
-        {/* Ver comentários - Placeholder */}
-        <button className="text-sm text-instalite-gray mb-1">
-          Ver comentários
-        </button>
-
         {/* Timestamp */}
-        <time className="text-[10px] uppercase text-instalite-gray block">
+        <time className="text-[10px] uppercase text-instalite-gray block mb-2">
           {new Date(post.created_at).toLocaleDateString("pt-BR")}
         </time>
+
+        {/* Seção de Comentários */}
+        <CommentSection postId={post.id} currentUser={currentUser} />
       </div>
     </article>
   );

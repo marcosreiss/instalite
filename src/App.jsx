@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Instagram } from "lucide-react";
+import { useState, useCallback } from "react";
 import Header from "./components/Header";
 import UsernameModal from "./components/UsernameModal";
+import CreatePost from "./components/CreatePost";
 import PostList from "./components/PostList";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
   );
 
   const [isUserModalOpen, setIsUserModalOpen] = useState(!currentUser);
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
 
   const handleUsernameSet = (userId, username) => {
     setCurrentUser(userId);
@@ -20,29 +21,22 @@ function App() {
     setIsUserModalOpen(false);
   };
 
+  const handlePostCreated = useCallback(() => {
+    setRefreshTrigger((prev) => prev + 1);
+  }, []);
+
   return (
     <div className="min-h-screen bg-instalite-light">
       <Header username={currentUsername} />
 
       <main className="w-full flex justify-center">
         <div className="w-full max-w-[470px] pt-8 pb-10 px-4">
-          {/* Card Criar Post - Por enquanto só visual */}
-          <div className="bg-white border border-instalite-border rounded-lg mb-6">
-            <div className="p-4">
-              <h3 className="font-semibold text-instalite-dark mb-3">
-                Criar novo post
-              </h3>
-              <label className="flex flex-col items-center justify-center h-[120px] border-2 border-dashed border-instalite-border rounded-lg cursor-pointer hover:border-instalite-gray transition">
-                <Instagram className="text-instalite-gray mb-2" size={32} />
-                <span className="text-sm text-instalite-gray">
-                  Clique para adicionar uma foto
-                </span>
-              </label>
-            </div>
-          </div>
+          <CreatePost
+            currentUser={currentUser}
+            onPostCreated={handlePostCreated}
+          />
 
-          {/* Lista de Posts do Supabase */}
-          <PostList />
+          <PostList key={refreshTrigger} />
         </div>
       </main>
 

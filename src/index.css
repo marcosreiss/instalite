@@ -1,5 +1,36 @@
 @import "tailwindcss";
 
+/* === Paleta base (InstaLite) === */
+:root {
+  --instalite-primary: #e1306c; /* Rosa Instagram */
+  --instalite-secondary: #405de6; /* Azul Instagram */
+  --instalite-dark: #262626; /* Preto Instagram */
+  --instalite-light: #fafafa; /* Branco Instagram */
+  --instalite-gray: #8e8e8e; /* Texto secundário */
+  --instalite-border: #dbdbdb; /* Bordas suaves */
+}
+
+/* === Mapeamento para o Tailwind (v4) === */
+@theme inline {
+  --color-instalite-primary: var(--instalite-primary);
+  --color-instalite-secondary: var(--instalite-secondary);
+  --color-instalite-dark: var(--instalite-dark);
+  --color-instalite-light: var(--instalite-light);
+  --color-instalite-gray: var(--instalite-gray);
+  --color-instalite-border: var(--instalite-border);
+}
+
+body {
+  background: var(--instalite-light);
+  color: var(--instalite-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 * {
-  outline: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }

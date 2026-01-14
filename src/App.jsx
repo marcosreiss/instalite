@@ -39,14 +39,14 @@ function App() {
 
       {/* Main Feed - CENTRALIZADO */}
       <main className="w-full flex justify-center">
-        <div className="w-full max-w-[470px] pt-8 pb-10 px-4">
+        <div className="w-full max-w-117.5 pt-8 pb-10 px-4">
           {/* Card Criar Post */}
           <div className="bg-white border border-instalite-border rounded-lg mb-6">
             <div className="p-4">
               <h3 className="font-semibold text-instalite-dark mb-3">
                 Criar novo post
               </h3>
-              <label className="flex flex-col items-center justify-center h-[120px] border-2 border-dashed border-instalite-border rounded-lg cursor-pointer hover:border-instalite-gray transition">
+              <label className="flex flex-col items-center justify-center h-30 border-2 border-dashed border-instalite-border rounded-lg cursor-pointer hover:border-instalite-gray transition">
                 <Instagram className="text-instalite-gray mb-2" size={32} />
                 <span className="text-sm text-instalite-gray">
                   Clique para adicionar uma foto
@@ -60,7 +60,7 @@ function App() {
             {/* Header do Post */}
             <div className="flex items-center justify-between px-3 py-2.5">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-instalite-secondary to-instalite-primary flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-linear-to-br from-instalite-secondary to-instalite-primary flex items-center justify-center">
                   <span className="text-white text-sm font-semibold">J</span>
                 </div>
                 <span className="text-sm font-semibold text-instalite-dark">
@@ -73,7 +73,7 @@ function App() {
             </div>
 
             {/* Imagem do Post */}
-            <div className="w-full aspect-square bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400"></div>
+            <div className="w-full aspect-square bg-linear-to-br from-blue-400 via-purple-400 to-pink-400"></div>
 
             {/* Ações */}
             <div className="px-3 pt-2 pb-1">
@@ -127,7 +127,7 @@ function App() {
           <article className="bg-white border border-instalite-border rounded-lg">
             <div className="flex items-center justify-between px-3 py-2.5">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-instalite-primary to-orange-400 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-linear-to-br from-instalite-primary to-orange-400 flex items-center justify-center">
                   <span className="text-white text-sm font-semibold">A</span>
                 </div>
                 <span className="text-sm font-semibold text-instalite-dark">
@@ -139,7 +139,7 @@ function App() {
               </button>
             </div>
 
-            <div className="w-full aspect-square bg-gradient-to-br from-green-300 via-teal-400 to-blue-500"></div>
+            <div className="w-full aspect-square bg-linear-to-br from-green-300 via-teal-400 to-blue-500"></div>
 
             <div className="px-3 pt-2 pb-1">
               <div className="flex items-center justify-between mb-2">

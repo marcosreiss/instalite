@@ -7,7 +7,11 @@ import {
   MoreHorizontal,
 } from "lucide-react";
 
+import { supabase } from "./lib/supabase";
+
 function App() {
+  console.log("Supabase conectado:", supabase);
+
   return (
     <div className="min-h-screen bg-instalite-light">
       {/* Header - Fixo no topo */}

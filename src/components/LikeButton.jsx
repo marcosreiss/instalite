@@ -21,14 +21,14 @@ export default function LikeButton({ postId, currentUser }) {
         setLikeCount(count || 0);
       }
 
-      // Verificar se usuário atual curtiu
+      // Verificar se usuário atual curtiu (REMOVER .single())
       if (currentUser) {
         const { data } = await supabase
           .from("likes")
           .select()
           .eq("post_id", postId)
           .eq("user_id", currentUser)
-          .single();
+          .maybeSingle(); // ← MUDANÇA AQUI: usar maybeSingle() em vez de single()
 
         if (isMounted) {
           setLiked(!!data);

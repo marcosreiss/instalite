@@ -51,10 +51,16 @@ export default function UsernameModal({ onUsernameSet }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
-      <div className="bg-white rounded-xl p-8 max-w-md w-full shadow-2xl">
+    <div
+      className="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50 px-4 animate-in fade-in duration-200"
+      onClick={(e) => e.stopPropagation()} // Prevenir propagação
+    >
+      <div
+        className="bg-white rounded-xl p-8 max-w-md w-full shadow-2xl animate-in zoom-in-95 duration-200"
+        onClick={(e) => e.stopPropagation()} // Prevenir fechar ao clicar no modal
+      >
         <div className="text-center mb-6">
-          <div className="w-20 h-20 mx-auto mb-4 bg-linear-to-br from-instalite-primary to-instalite-secondary rounded-full flex items-center justify-center">
+          <div className="w-20 h-20 mx-auto mb-4 bg-linear-to-br from-instalite-primary to-instalite-secondary rounded-full flex items-center justify-center shadow-lg">
             <span className="text-white text-4xl">📸</span>
           </div>
           <h2 className="text-2xl font-bold text-instalite-dark mb-2">
@@ -71,13 +77,13 @@ export default function UsernameModal({ onUsernameSet }) {
             placeholder="Digite seu username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full border border-instalite-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-instalite-primary focus:border-transparent"
+            className="w-full border border-instalite-border rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-instalite-primary focus:border-transparent transition"
             disabled={loading}
             autoFocus
           />
 
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-600 text-sm px-4 py-2 rounded-lg">
+            <div className="bg-red-50 border border-red-200 text-red-600 text-sm px-4 py-2 rounded-lg animate-in slide-in-from-top-2 duration-200">
               {error}
             </div>
           )}
@@ -85,7 +91,7 @@ export default function UsernameModal({ onUsernameSet }) {
           <button
             type="submit"
             disabled={loading || !username.trim()}
-            className="w-full bg-instalite-primary text-white py-3 px-4 rounded-lg font-semibold hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition"
+            className="w-full bg-instalite-primary text-white py-3 px-4 rounded-lg font-semibold hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition active:scale-95"
           >
             {loading ? "Carregando..." : "Entrar"}
           </button>
